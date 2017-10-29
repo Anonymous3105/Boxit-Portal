@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2017 at 09:34 PM
+-- Generation Time: Oct 29, 2017 at 07:12 PM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -44,10 +44,10 @@ INSERT INTO `CITY` (`name`, `country`, `islandlocked`, `xcoord`, `ycoord`) VALUE
 ('Beijing', 'China', 1, '699.0', '710.0'),
 ('Berlin', 'Germany', 1, '491.5', '500.5'),
 ('Bogota', 'Colombia', 0, '440.0', '450.0'),
-('Buenos', 'Spain', 0, '540.5', '549.0'),
+('Buenos Aires', 'Spain', 0, '540.5', '549.0'),
 ('Cairo', 'Egypt', 1, '576.5', '586.0'),
 ('Calcutta', 'India', 0, '691.5', '700.5'),
-('Cape', 'South Africa', 0, '669.0', '676.5'),
+('Cape Town', 'South Africa', 0, '669.0', '676.5'),
 ('Casablanca', 'Morocco', 0, '505.5', '514.0'),
 ('Chicago', 'USA', 1, '346.0', '357.5'),
 ('Churchill', 'Canada', 1, '290.5', '302.5'),
@@ -60,16 +60,16 @@ INSERT INTO `CITY` (`name`, `country`, `islandlocked`, `xcoord`, `ycoord`) VALUE
 ('Lagos', 'Nigeria', 0, '574.5', '583.5'),
 ('Lima', 'Peru', 0, '464.5', '474.0'),
 ('London', 'England', 0, '467.5', '478.0'),
-('Los', 'USA', 0, '307.5', '318.0'),
-('Mexico', 'Mexico', 0, '374.0', '383.0'),
+('Los Angeles', 'USA', 0, '307.5', '318.0'),
+('Mexico city', 'Mexico', 0, '374.0', '383.0'),
 ('Moscow', 'Russia', 1, '527.0', '538.0'),
 ('Mumbai', 'India', 0, '669.0', '676.5'),
-('New', 'USA', 0, '377.0', '385.5'),
+('New York', 'USA', 0, '377.0', '385.5'),
 ('Paris', 'France', 1, '486.0', '496.5'),
 ('Rio', 'Brazil', 0, '542.0', '552.5'),
 ('Riyadh', 'Saudi Arabia', 1, '613.5', '621.5'),
 ('Rome', 'Italy', 1, '524.0', '532.5'),
-('Sao', 'Brazil', 0, '543.5', '553.0'),
+('Sao Paulo', 'Brazil', 0, '543.5', '553.0'),
 ('Seoul', 'South Korea', 0, '730.5', '739.0'),
 ('Shanghai', 'China', 0, '732.5', '740.0'),
 ('Singapore', 'Singapore', 0, '751.5', '760.0'),
@@ -103,7 +103,7 @@ INSERT INTO `LOGIN` (`username`, `password`) VALUES
 --
 
 CREATE TABLE `ORDERADDR` (
-  `orderid` int AUTOINCREMENT NOT NULL,
+  `orderid` int(11) NOT NULL,
   `fromname` varchar(30) NOT NULL,
   `frommobno` int(10) NOT NULL,
   `fromemail` varchar(50) NOT NULL,
@@ -120,6 +120,13 @@ CREATE TABLE `ORDERADDR` (
   `topincode` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `ORDERADDR`
+--
+
+INSERT INTO `ORDERADDR` (`orderid`, `fromname`, `frommobno`, `fromemail`, `fromaddr`, `fromlandmark`, `fromcity`, `frompincode`, `toname`, `tomobno`, `toemail`, `toaddr`, `tolandmark`, `tocity`, `topincode`) VALUES
+(1, 'asdf', 5949, 'asdf', 'asdf', 'asdf', 'Los Angeles', 592603, 'qwer', 2648, 'qer', 'adsf', 'qer', 'Lima', 31548);
+
 -- --------------------------------------------------------
 
 --
@@ -127,14 +134,22 @@ CREATE TABLE `ORDERADDR` (
 --
 
 CREATE TABLE `ORDERTB` (
-  `orderid` int IDENTITY(1,1) NOT NULL,
+  `orderid` int(11) NOT NULL,
   `ordertime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `custname` varchar(20) NOT NULL,
   `pickupdt` datetime NOT NULL,
   `content` varchar(30) NOT NULL,
   `weight` int(3) NOT NULL,
-  `quantity` int(2) NOT NULL
+  `quantity` int(2) NOT NULL,
+  `method` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ORDERTB`
+--
+
+INSERT INTO `ORDERTB` (`orderid`, `ordertime`, `custname`, `pickupdt`, `content`, `weight`, `quantity`, `method`) VALUES
+(1, '2017-10-29 07:26:34', 'root', '2017-10-27 01:01:00', 'Bomb', 48, 5, 'ship');
 
 -- --------------------------------------------------------
 
