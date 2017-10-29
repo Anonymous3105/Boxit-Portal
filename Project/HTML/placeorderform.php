@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,7 +11,7 @@
 		$fromcity = $_SESSION['fromcity'];
 		$tocity = $_SESSION['tocity'];
 		
-		$conn = new mysqli("localhost", "root", "root", "Boxitdb") or die("Error connecting to database");
+		$conn = new mysqli("localhost", "root", "", "Boxitdb") or die("Error connecting to database");
 		$sql = "SELECT country FROM CITY WHERE name='$fromcity'";
 		$row = ($conn->query($sql))->fetch_assoc();
 		$fromcountry = $row['country'];
@@ -25,7 +25,7 @@
 		if (isset($_POST['submit'])) {
 
 
-			$sql = "SELECT MAX(orderid) FROM ORDERTB";
+			$sql = "SELECT MAX(orderid) as orderid FROM ORDERTB";
 			$result = $conn->query($sql);
 			if ($result->num_rows == 0) {
 				$orderid = 1;

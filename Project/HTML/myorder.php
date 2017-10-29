@@ -21,7 +21,7 @@
 
 	$server = "localhost";
 	$username = "root";
-	$password = "root";
+	$password = "";
 	$dbname = "Boxitdb";
 	$a=$_SESSION['uname'];
 	$err='';
