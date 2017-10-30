@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -25,7 +25,7 @@
 		if (isset($_POST['submit'])) {
 
 
-			$sql = "SELECT MAX(orderid) as orderid FROM ORDERTB";
+			$sql = "SELECT MAX(orderid) FROM ORDERTB";
 			$result = $conn->query($sql);
 			if ($result->num_rows == 0) {
 				$orderid = 1;

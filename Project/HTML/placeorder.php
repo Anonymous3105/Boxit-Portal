@@ -3,7 +3,7 @@
 	<title>Place Order</title>
 	<link rel="stylesheet" href="../CSS/placeorder.css">
 	<?php 
-		session_start();
+		// session_start();
 		include 'session.php';
 
 		if (isset($_POST["airimg"])) {

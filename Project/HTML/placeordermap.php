@@ -21,7 +21,7 @@
 				$err_flag = 1;
 			}
 
-			$conn = new mysqli("localhost", "root", "root", "Boxitdb") or die("Error connecting to the database");
+			$conn = new mysqli("localhost", "root", "", "Boxitdb") or die("Error connecting to the database");
 			$sql = "SELECT islandlocked FROM CITY where name='$fromcity' OR name='$tocity'";
 			$result = $conn->query($sql) or die("Error getting data");
 			
