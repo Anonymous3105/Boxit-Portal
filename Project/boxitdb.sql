@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2017 at 06:32 PM
+-- Generation Time: Oct 30, 2017 at 07:45 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -41,43 +41,43 @@ CREATE TABLE `city` (
 --
 
 INSERT INTO `city` (`name`, `country`, `islandlocked`, `xcoord`, `ycoord`) VALUES
-('Anchorage', 'Alaska', 0, '188.0', '197.5'),
-('Bangkok', 'Thailand', 0, '723.0', '733.0'),
-('Beijing', 'China', 1, '699.0', '710.0'),
-('Berlin', 'Germany', 1, '491.5', '500.5'),
-('Bogota', 'Colombia', 0, '440.0', '450.0'),
-('Buenos', 'Spain', 0, '540.5', '549.0'),
-('Cairo', 'Egypt', 1, '576.5', '586.0'),
-('Calcutta', 'India', 0, '691.5', '700.5'),
-('Cape', 'South Africa', 0, '669.0', '676.5'),
-('Casablanca', 'Morocco', 0, '505.5', '514.0'),
-('Chicago', 'USA', 1, '346.0', '357.5'),
-('Churchill', 'Canada', 1, '290.5', '302.5'),
-('Delhi', 'India', 1, '655.5', '662.0'),
-('Durban', 'South Africa', 0, '683.0', '690.5'),
-('Guangzhou', 'China', 0, '731.0', '740.0'),
-('Istanbul', 'Turkey', 1, '554.5', '561.5'),
-('Jakarta', 'Indonesia', 0, '776.0', '785.0'),
-('Karachi', 'Pakistan', 0, '646.0', '654.0'),
-('Lagos', 'Nigeria', 0, '574.5', '583.5'),
-('Lima', 'Peru', 0, '464.5', '474.0'),
-('London', 'England', 0, '467.5', '478.0'),
-('Los', 'USA', 0, '307.5', '318.0'),
-('Mexico', 'Mexico', 0, '374.0', '383.0'),
-('Moscow', 'Russia', 1, '527.0', '538.0'),
-('Mumbai', 'India', 0, '669.0', '676.5'),
-('New', 'USA', 0, '377.0', '385.5'),
-('Paris', 'France', 1, '486.0', '496.5'),
-('Rio', 'Brazil', 0, '542.0', '552.5'),
-('Riyadh', 'Saudi Arabia', 1, '613.5', '621.5'),
-('Rome', 'Italy', 1, '524.0', '532.5'),
-('Sao', 'Brazil', 0, '543.5', '553.0'),
-('Seoul', 'South Korea', 0, '730.5', '739.0'),
-('Shanghai', 'China', 0, '732.5', '740.0'),
-('Singapore', 'Singapore', 0, '751.5', '760.0'),
-('Sydney', 'New South Wales', 0, '894.0', '903.0'),
-('Tokyo', 'Japan', 0, '749.5', '758.0'),
-('Toronto', 'Canada', 1, '358.5', '366.5');
+('Anchorage', 'Alaska', 0, '168.5', '217.0'),
+('Bangkok', 'Thailand', 0, '1014.5', '441.5'),
+('Beijing', 'China', 1, '1079.5', '329.5'),
+('Berlin', 'Germany', 1, '710.5', '281.5'),
+('Bogota', 'Colombia', 0, '417.5', '472.5'),
+('Buenos', 'Spain', 0, '472.5', '617.0'),
+('Cairo', 'Egypt', 1, '778.0', '384.5'),
+('Calcutta', 'India', 0, '975.5', '416.5'),
+('Cape', 'South Africa', 0, '736.0', '609.5'),
+('Casablanca', 'Morocco', 0, '640.0', '379.5'),
+('Chicago', 'USA', 1, '370.0', '333.5'),
+('Churchill', 'Canada', 1, '353.5', '239.5'),
+('Delhi', 'India', 1, '936.0', '381.5'),
+('Durban', 'South Africa', 0, '780.5', '593.0'),
+('Guangzhou', 'China', 0, '1061.0', '410.0'),
+('Istanbul', 'Turkey', 1, '772.0', '344.0'),
+('Jakarta', 'Indonesia', 0, '1043.5', '517.5'),
+('Karachi', 'Pakistan', 0, '901.0', '399.0'),
+('Lagos', 'Nigeria', 0, '688.0', '470.0'),
+('Lima', 'Peru', 0, '409.0', '529.5'),
+('London', 'England', 0, '665.0', '280.5'),
+('Los', 'USA', 0, '262.0', '363.5'),
+('Mexico', 'Mexico', 0, '334.5', '422.5'),
+('Moscow', 'Russia', 1, '803.5', '261.5'),
+('Mumbai', 'India', 0, '923.5', '422.0'),
+('New', 'USA', 0, '421.0', '341.5'),
+('Paris', 'France', 1, '676.5', '306.0'),
+('Rio', 'Brazil', 0, '533.5', '561.0'),
+('Riyadh', 'Saudi Arabia', 1, '829.0', '406.0'),
+('Rome', 'Italy', 1, '721.0', '335.5'),
+('Sao', 'Brazil', 0, '522.0', '574.5'),
+('Seoul', 'South Korea', 0, '1112.0', '357.5'),
+('Shanghai', 'China', 0, '1086.0', '386.5'),
+('Singapore', 'Singapore', 0, '1027.5', '484.0'),
+('Sydney', 'New South Wales', 0, '1179.5', '617.5'),
+('Tokyo', 'Japan', 0, '1144.0', '363.5'),
+('Toronto', 'Canada', 1, '407.5', '317.5');
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE `orderaddr` (
 --
 
 INSERT INTO `orderaddr` (`orderid`, `fromname`, `frommobno`, `fromemail`, `fromaddr`, `fromlandmark`, `fromcity`, `frompincode`, `toname`, `tomobno`, `toemail`, `toaddr`, `tolandmark`, `tocity`, `topincode`) VALUES
-('1', 'Abc', 95282, 'abc@bcd.com', 'ass', 'ABC', 'Anchorage', 521321, 'sdarf', 56532, 'def@bcd.com', 'sdf', 'sdrtyu', 'Berlin', 632922);
+('1', 'Kamles', 82643562, 'kamles', 'kamiresi', 'kamles', 'Anchorage', 326136, 'Bhai', 63896216, 'bjhai', 'bhao', 'bhaibhai', 'Berlin', 326252);
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,7 @@ CREATE TABLE `ordertb` (
 --
 
 INSERT INTO `ordertb` (`orderid`, `ordertime`, `custname`, `pickupdt`, `content`, `weight`, `quantity`, `method`) VALUES
-('1', '2017-10-29 14:24:16', 'root', '2017-10-29 01:59:00', 'a', 1, 2, 'air');
+('1', '2017-10-30 18:30:47', 'root', '2017-11-01 00:06:00', 'comi', 1, 2, 'air');
 
 -- --------------------------------------------------------
 
