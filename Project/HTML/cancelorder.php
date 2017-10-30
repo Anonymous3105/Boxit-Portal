@@ -20,8 +20,8 @@
 	else{
 		$q2 = "DELETE FROM ordertb WHERE orderid='$orderid'";
 		$q3 = "DELETE FROM orderaddr WHERE orderid='$orderid'";
-		$conn->query($q2);
 		$conn->query($q3);
+		$conn->query($q2);
 		$msg = "Cancellation successful";
 		sleep(5);
 		header("Location:homepage.php");
