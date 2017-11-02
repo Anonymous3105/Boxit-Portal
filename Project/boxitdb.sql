@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2017 at 07:45 PM
+-- Generation Time: Nov 02, 2017 at 04:29 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -33,51 +33,53 @@ CREATE TABLE `city` (
   `country` varchar(30) NOT NULL,
   `islandlocked` tinyint(1) NOT NULL,
   `xcoord` decimal(5,1) NOT NULL,
-  `ycoord` decimal(5,1) NOT NULL
+  `ycoord` decimal(5,1) NOT NULL,
+  `zone` int(1) NOT NULL,
+  `north` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`name`, `country`, `islandlocked`, `xcoord`, `ycoord`) VALUES
-('Anchorage', 'Alaska', 0, '168.5', '217.0'),
-('Bangkok', 'Thailand', 0, '1014.5', '441.5'),
-('Beijing', 'China', 1, '1079.5', '329.5'),
-('Berlin', 'Germany', 1, '710.5', '281.5'),
-('Bogota', 'Colombia', 0, '417.5', '472.5'),
-('Buenos', 'Spain', 0, '472.5', '617.0'),
-('Cairo', 'Egypt', 1, '778.0', '384.5'),
-('Calcutta', 'India', 0, '975.5', '416.5'),
-('Cape', 'South Africa', 0, '736.0', '609.5'),
-('Casablanca', 'Morocco', 0, '640.0', '379.5'),
-('Chicago', 'USA', 1, '370.0', '333.5'),
-('Churchill', 'Canada', 1, '353.5', '239.5'),
-('Delhi', 'India', 1, '936.0', '381.5'),
-('Durban', 'South Africa', 0, '780.5', '593.0'),
-('Guangzhou', 'China', 0, '1061.0', '410.0'),
-('Istanbul', 'Turkey', 1, '772.0', '344.0'),
-('Jakarta', 'Indonesia', 0, '1043.5', '517.5'),
-('Karachi', 'Pakistan', 0, '901.0', '399.0'),
-('Lagos', 'Nigeria', 0, '688.0', '470.0'),
-('Lima', 'Peru', 0, '409.0', '529.5'),
-('London', 'England', 0, '665.0', '280.5'),
-('Los', 'USA', 0, '262.0', '363.5'),
-('Mexico', 'Mexico', 0, '334.5', '422.5'),
-('Moscow', 'Russia', 1, '803.5', '261.5'),
-('Mumbai', 'India', 0, '923.5', '422.0'),
-('New', 'USA', 0, '421.0', '341.5'),
-('Paris', 'France', 1, '676.5', '306.0'),
-('Rio', 'Brazil', 0, '533.5', '561.0'),
-('Riyadh', 'Saudi Arabia', 1, '829.0', '406.0'),
-('Rome', 'Italy', 1, '721.0', '335.5'),
-('Sao', 'Brazil', 0, '522.0', '574.5'),
-('Seoul', 'South Korea', 0, '1112.0', '357.5'),
-('Shanghai', 'China', 0, '1086.0', '386.5'),
-('Singapore', 'Singapore', 0, '1027.5', '484.0'),
-('Sydney', 'New South Wales', 0, '1179.5', '617.5'),
-('Tokyo', 'Japan', 0, '1144.0', '363.5'),
-('Toronto', 'Canada', 1, '407.5', '317.5');
+INSERT INTO `city` (`name`, `country`, `islandlocked`, `xcoord`, `ycoord`, `zone`, `north`) VALUES
+('Anchorage', 'Alaska', 0, '168.5', '217.0', 1, 1),
+('Bangkok', 'Thailand', 0, '1014.5', '441.5', 5, 1),
+('Beijing', 'China', 1, '1079.5', '329.5', 6, 1),
+('Berlin', 'Germany', 1, '710.5', '281.5', 4, 1),
+('Bogota', 'Colombia', 0, '417.5', '472.5', 2, 0),
+('Buenos Aires', 'Spain', 0, '472.5', '617.0', 3, 0),
+('Cairo', 'Egypt', 1, '778.0', '384.5', 4, 1),
+('Calcutta', 'India', 0, '975.5', '416.5', 5, 1),
+('Cape Town', 'South Africa', 0, '736.0', '609.5', 4, 0),
+('Casablanca', 'Morocco', 0, '640.0', '379.5', 4, 1),
+('Chicago', 'USA', 1, '370.0', '333.5', 2, 1),
+('Churchill', 'Canada', 1, '353.5', '239.5', 2, 1),
+('Delhi', 'India', 1, '936.0', '381.5', 5, 1),
+('Durban', 'South Africa', 0, '780.5', '593.0', 4, 0),
+('Guangzhou', 'China', 0, '1061.0', '410.0', 6, 1),
+('Istanbul', 'Turkey', 1, '772.0', '344.0', 4, 1),
+('Jakarta', 'Indonesia', 0, '1043.5', '517.5', 5, 0),
+('Karachi', 'Pakistan', 0, '901.0', '399.0', 5, 1),
+('Lagos', 'Nigeria', 0, '688.0', '470.0', 4, 0),
+('Lima', 'Peru', 0, '409.0', '529.5', 2, 0),
+('London', 'England', 0, '665.0', '280.5', 4, 1),
+('Los Angeles', 'USA', 0, '262.0', '363.5', 1, 1),
+('Mexico City', 'Mexico', 0, '334.5', '422.5', 1, 1),
+('Moscow', 'Russia', 1, '803.5', '261.5', 4, 1),
+('Mumbai', 'India', 0, '923.5', '422.0', 5, 1),
+('New York', 'USA', 0, '421.0', '341.5', 2, 1),
+('Paris', 'France', 1, '676.5', '306.0', 4, 1),
+('Rio De Janeiro', 'Brazil', 0, '533.5', '561.0', 3, 0),
+('Riyadh', 'Saudi Arabia', 1, '829.0', '406.0', 5, 1),
+('Rome', 'Italy', 1, '721.0', '335.5', 4, 1),
+('Sao Paulo', 'Brazil', 0, '522.0', '574.5', 3, 0),
+('Seoul', 'South Korea', 0, '1112.0', '357.5', 6, 1),
+('Shanghai', 'China', 0, '1086.0', '386.5', 6, 1),
+('Singapore', 'Singapore', 0, '1027.5', '484.0', 5, 0),
+('Sydney', 'New South Wales', 0, '1179.5', '617.5', 6, 0),
+('Tokyo', 'Japan', 0, '1144.0', '363.5', 6, 1),
+('Toronto', 'Canada', 1, '407.5', '317.5', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -122,13 +124,6 @@ CREATE TABLE `orderaddr` (
   `topincode` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orderaddr`
---
-
-INSERT INTO `orderaddr` (`orderid`, `fromname`, `frommobno`, `fromemail`, `fromaddr`, `fromlandmark`, `fromcity`, `frompincode`, `toname`, `tomobno`, `toemail`, `toaddr`, `tolandmark`, `tocity`, `topincode`) VALUES
-('1', 'Kamles', 82643562, 'kamles', 'kamiresi', 'kamles', 'Anchorage', 326136, 'Bhai', 63896216, 'bjhai', 'bhao', 'bhaibhai', 'Berlin', 326252);
-
 -- --------------------------------------------------------
 
 --
@@ -145,13 +140,6 @@ CREATE TABLE `ordertb` (
   `quantity` int(2) NOT NULL,
   `method` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ordertb`
---
-
-INSERT INTO `ordertb` (`orderid`, `ordertime`, `custname`, `pickupdt`, `content`, `weight`, `quantity`, `method`) VALUES
-('1', '2017-10-30 18:30:47', 'root', '2017-11-01 00:06:00', 'comi', 1, 2, 'air');
 
 -- --------------------------------------------------------
 
