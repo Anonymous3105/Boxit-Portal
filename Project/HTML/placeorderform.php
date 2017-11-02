@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,11 +13,11 @@
 		
 		$conn = new mysqli("localhost", "root", "", "Boxitdb") or die("Error connecting to database");
 		$sql = "SELECT country FROM CITY WHERE name='$fromcity'";
-		$row = ($conn->query($sql))->fetch_assoc() or die("Abc");
+		$row = ($conn->query($sql))->fetch_assoc();
 		$fromcountry = $row['country'];
 
 		$sql = "SELECT country FROM CITY WHERE name='$tocity'";
-		$row = ($conn->query($sql))->fetch_assoc() ;
+		$row = ($conn->query($sql))->fetch_assoc();
 		$tocountry = $row['country'];
 		
 
@@ -25,7 +25,7 @@
 		if (isset($_POST['submit'])) {
 
 
-			$sql = "SELECT MAX(orderid) as orderid FROM ORDERTB";
+			$sql = "SELECT MAX(orderid) FROM ORDERTB";
 			$result = $conn->query($sql);
 			if ($result->num_rows == 0) {
 				$orderid = 1;
@@ -57,7 +57,7 @@
 			$topincode = $_POST['tpincode'];
 			
 			$sqlins2 = "INSERT INTO ORDERADDR(orderid, fromname,frommobno,fromemail,fromaddr,fromlandmark,fromcity,frompincode,toname,tomobno,toemail,toaddr,tolandmark,tocity,topincode) VALUES($orderid, '$fname', $fmobno, '$femail', '$faddr', '$fromlandmark', '$fromcity', $frompincode, '$tname', $tmobno, '$temail', '$taddr', '$tolandmark', '$tocity', $topincode)";
-			
+
 			echo "$sqlins2";
 
 			if ($conn->query($sqlins1) && $conn->query($sqlins2)) {

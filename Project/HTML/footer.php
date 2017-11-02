@@ -1,16 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<link rel="stylesheet" href="../CSS/footer.css">
 </head>
-<body>	
+<body>
 	<div id="footer">
-		<table cellspacing="20px">
-			<tr>
-				<td class="footeritems"><a href="helpdesk.php" target="_blank"> Helpdesk </a></td>
-				<td class="footeritems"><a href="contactpage.php" target="_blank"> Contact Us </a></td>
-				<td class="footeritems"><a href="aboutuspage.php" target="_blank"> About Us </a></td>
-			</tr>
-		</table>
-	</div>
+	<ul>	
+		<li class="footeritems"><a href="helpdesk.php" target="_blank"> Helpdesk </a></li>
+		<li class="footeritems"><a href="contactpage.php" target="_blank"> Contact Us </a></li>
+		<li class="footeritems"><a href="aboutuspage.php" target="_blank"> About Us </a></li>
+	</ul>
+	</div>	
 </body>
 </html>
+
+
+
+

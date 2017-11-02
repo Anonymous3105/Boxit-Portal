@@ -9,27 +9,14 @@
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<?php
 	include'topbar.php';
-	$msg="";
+	
 	if (isset($_POST['track'])) {
-		if(isset($_POST["selorderid"]))
-		{
 		$_SESSION['orderid'] = $_POST["selorderid"];
-		header("Location:trackorder.php");
-		}
-		else{
-			$msg="Please select an order";
-		}		
+		header("Location:trackorder.php");		
 	}
 	if (isset($_POST['cancel'])) {
-		if(isset($_POST["selorderid"]))
-		{
 		$_SESSION['orderid'] = $_POST["selorderid"];
-		header("Location:cancelorder.php");
-		}
-		else{
-			$msg="Please select an order";
-		}		
-				
+		header("Location:cancelorder.php");		
 	}
 
 	$server = "localhost";
@@ -38,7 +25,6 @@
 	$dbname = "Boxitdb";
 	$a=$_SESSION['uname'];
 	$err='';
-
 	
 	$conn = new mysqli($server, $username, $password, $dbname) or die("Error Connecting to the server.");
 
@@ -65,11 +51,7 @@
 		}
 		echo "<tr>";	
 		echo "<td colspan='2'> <input type='submit' value='Track' name='track'> </td>";
-		echo "<td colspan='3'> <input type='submit' value='Cancel' name='cancel'> </td>";
-
-		echo "</tr>";
-		echo "<tr>";
-		echo "<td colspan='5'>$msg</td>";
+		echo "<td colspan='2'> <input type='submit' value='Cancel' name='cancel'> </td>";
 		echo "</tr>";
 		echo("</table>");
 	}

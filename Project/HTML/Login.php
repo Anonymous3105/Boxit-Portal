@@ -2,7 +2,7 @@
 	session_start();
 	$server = "localhost";
 	$username = "root";
-	$password = "root";
+	$password = "";
 	$dbname = "Boxitdb";
 
 	$conn = new mysqli($server, $username, $password, $dbname) or die("Error Connecting to the server.");
@@ -138,7 +138,6 @@
 				</table>
 			</div>
 		</div>
-
 		<?php include 'footer.php'; ?>
 	</div>
 </body>
