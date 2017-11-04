@@ -3,33 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Orders</title>
-	<head><?php include'session.php' ?></head>
+	<head>
+		<?php include'session.php' ?>
+		<link rel="stylesheet" href="../CSS/topbar.css">
+		<link rel="stylesheet" href="../CSS/footer.css">
+		<link rel="stylesheet" href="../CSS/myordermyaccount.css">
+	</head>
 </head>
-<body>
+<body id="myorderbody">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<?php
 	include'topbar.php';
-	$msg="";
+	
 	if (isset($_POST['track'])) {
-		if(isset($_POST["selorderid"]))
-		{
 		$_SESSION['orderid'] = $_POST["selorderid"];
-		header("Location:trackorder.php");
-		}
-		else{
-			$msg="Please select an order";
-		}		
+		header("Location:trackorder.php");		
 	}
 	if (isset($_POST['cancel'])) {
-		if(isset($_POST["selorderid"]))
-		{
 		$_SESSION['orderid'] = $_POST["selorderid"];
-		header("Location:cancelorder.php");
-		}
-		else{
-			$msg="Please select an order";
-		}		
-				
+		header("Location:cancelorder.php");		
 	}
 
 	$server = "localhost";
@@ -38,7 +30,6 @@
 	$dbname = "Boxitdb";
 	$a=$_SESSION['uname'];
 	$err='';
-
 	
 	$conn = new mysqli($server, $username, $password, $dbname) or die("Error Connecting to the server.");
 
@@ -48,7 +39,7 @@
 		$err = "No Orders have been placed by you";
 	}
 	else{
-		echo("<table border='1px'><tr><th>Selected Order</th><th>Order Id</th><th>Pickup Date</th><th>From</th><th>To</th></tr>");
+		echo("<table border='1px' id='ordertable'><tr><th>Selected Order</th><th>Order Id</th><th>Pickup Date</th><th>From</th><th>To</th></tr>");
 		while($row = $result->fetch_assoc())
 		{	
 			$b=$row['orderid'];
@@ -65,18 +56,15 @@
 		}
 		echo "<tr>";	
 		echo "<td colspan='2'> <input type='submit' value='Track' name='track'> </td>";
-		echo "<td colspan='3'> <input type='submit' value='Cancel' name='cancel'> </td>";
-
-		echo "</tr>";
-		echo "<tr>";
-		echo "<td colspan='5'>$msg</td>";
+		echo "<td colspan='2'> <input type='submit' value='Cancel' name='cancel'> </td>";
 		echo "</tr>";
 		echo("</table>");
 	}
-	echo($err);
 
 	$conn->close();
 	?>
 	</form>
+	<div id="error"><?php echo($err); ?></div>
+	<?php include "footer.php" ?>
 </body>
 </html>

@@ -3,16 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Account</title>
+	<link rel="stylesheet" href="../CSS/topbar.css">
+	<link rel="stylesheet" href="../CSS/footer.css">
+	<link rel="stylesheet" href="../CSS/myordermyaccount.css">
 	<?php 
 	include'session.php';
 	$a = $_SESSION['uname'];
-	$conn = new mysqli("localhost","root","","boxitdb") or die("Error connecting to DB");
-	$q = "SELECT * FROM user WHERE username='$a'";
+	$conn = new mysqli("localhost","root","","Boxitdb") or die("Error connecting to DB");
+	$q = "SELECT * FROM USER WHERE username='$a'";
 	$result = $conn->query("$q") or die("Error executing query");
 	$row=$result->fetch_assoc();
 	$err="";
 	if (isset($_POST['changepass'])){
-		$q1="SELECT password FROM login WHERE username='$a'";
+		$q1="SELECT password FROM LOGIN WHERE username='$a'";
 		$cpass = $_POST['cpass'];
 		$npass = $_POST['npass'];
 		$rpass = $_POST['rpass'];
@@ -22,8 +25,10 @@
 		$row1=$result1->fetch_assoc();
 		if($cpass==$row1['password']){
 			if($err == ""){
-				$q2="UPDATE `login` SET `password`= '$npass' WHERE username='$a'";
+				$q2="UPDATE LOGIN SET password= '$npass' WHERE username='$a'";
 				$conn->query($q2);
+				sleep(2);
+				header("Location:homepage.php");
 			}
 		}
 		else{
@@ -32,69 +37,12 @@
 	}
 	$conn->close();
 	?>
-	<script type="text/javascript">
-    function check(password) {
-        var password_strength = document.getElementById("password_strength");
- 
-        //TextBox left blank.
-        if (password.length == 0) {
-            password_strength.innerHTML = "";
-            return;
-        }
- 
-        //Regular Expressions.
-        var regex = new Array();
-        regex.push("[A-Z]"); //Uppercase Alphabet.
-        regex.push("[a-z]"); //Lowercase Alphabet.
-        regex.push("[0-9]"); //Digit.
-        regex.push("[$@$!%*#?&]"); //Special Character.
- 
-        var passed = 0;
- 
-        //Validate for each Regular Expression.
-        for (var i = 0; i < regex.length; i++) {
-            if (new RegExp(regex[i]).test(password)) {
-                passed++;
-            }
-        }
- 
-        //Validate for length of Password.
-        if (passed > 2 && password.length > 8) {
-            passed++;
-        }
- 
-        //Display status.
-        var color = "";
-        var strength = "";
-        switch (passed) {
-            case 0:
-            case 1:
-                strength = "Weak";
-                color = "red";
-                break;
-            case 2:
-                strength = "Good";
-                color = "darkorange";
-                break;
-            case 3:
-            case 4:
-                strength = "Strong";
-                color = "green";
-                break;
-            case 5:
-                strength = "Very Strong";
-                color = "darkgreen";
-                break;
-        }
-        password_strength.innerHTML = strength;
-        password_strength.style.color = color;
-    }
-</script>
+	<script src="../JS/passwordchange.js" type="text/javascript"></script>
 </head>
-<body>
+<body id="myaccountbody">
 	<?php
 	include'topbar.php';
-	echo"<table>
+	echo"<table id='myaccounttable' cellspacing='0'>
 	<tr>
 	<td>Name</td>
 	<td>".$row['name']."</td>
@@ -117,12 +65,11 @@
 	</tr>
 	</table>";
 	?>
+
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method = 'post'>
-		<?php 
-		echo"
-		<table>
+		<table id="passwordtable" cellpadding="4em" cellspacing="4em">
 		<tr>
-		<th colspan='2'>Change Password</th>
+		<th colspan='2'><h2>Change Password</h2></th>
 		</tr>
 		<tr>
 		<td>Current Password</td>
@@ -130,7 +77,7 @@
 		</tr>
 		<tr>
 		<td>New Password</td>
-		<td><input type='password' name='npass' required onkeyup='check(this.value)'></td>
+		<td><input type='password' name='npass' required onkeyup="check(this.value);"></td>
 		<td id='password_strength'></td>
 		</tr>
 		<tr>
@@ -138,14 +85,14 @@
 		<td><input type='password' name='rpass' required></td>
 		</tr>
 		<tr>
-		<td>$err</td>
+		<td><?php echo $err; $err=""; ?>	</td>
 		</tr>
 		<tr>
-		<td colspan='2'><input type='submit' name ='changepass' value='Change'></td>
+		<td align="center" colspan='2'><input type='submit' name ='changepass' value='Change'></td>
 		</tr>
 		</table>
-		</form>";
-		include"footer.php";
-		?>
+		</form>
+
+		<?php include "footer.php";?>
 	</body>
 	</html>

@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Tracking your Orders</title>
+	<link rel="stylesheet" href="../CSS/topbar.css">
 	<?php include 'session.php'; ?>
 </head>
 <body>
@@ -21,11 +22,12 @@
 		
 		$sql = "SELECT xcoord, ycoord FROM CITY WHERE name='$fromcity'";
 		$fromcitycoord = ($conn->query($sql))->fetch_assoc();
+
 		$sql = "SELECT xcoord, ycoord FROM CITY WHERE name='$tocity'";
 		$tocitycoord = ($conn->query($sql))->fetch_assoc();
 	?>
 
-	
+	<img src="../images/worldmap.jpg" alt="The World Map">
 
 	
 	<form style="display: none;">
@@ -43,32 +45,11 @@
 		var fromcityy = document.getElementById('fromcityy').value;
 		var tocityx = document.getElementById('tocityx').value;
 		var tocityy = document.getElementById('tocityy').value;
-		var method = document.getElementById('method').value;
-		var pickupdt = document.getElementById('pickupdt').value;
+		var	method = document.getElementById('method').value;
+		var	pickupdt = document.getElementById('pickupdt').value;
 
 
-
-	         var fposition =[parseFloat(fromcityx),parseFloat(fromcityy)];
-
-		var tposition=[parseFloat(tocityx),parseFloat(tocityy)];
-		var pos=[[fposition[0]-100,fposition[1]-20]];
-		pos[6]=[tposition[0]-100,tposition[1]-20];
-		for(var m=1;m<6 ;m++)
-		{
-			var n =6-m;
-			var x=(m*parseFloat(tposition[0]-100)+n*parseFloat(fposition[0]-100))/6;
-			var y=(m*parseFloat(tposition[1]-20)+n*parseFloat(fposition[1]-20))/6;
-			pos[m]=[x,y];
-		}
-		document.write("<div><img src='../images/worldmap.jpg' alt='The World Map' style='position: absolute;left: 0 px;top:0 px' >");
-		for(var m=1;m<7;m++)
-		{
-		document.write("<img src='../images/plane.jpeg' width='20px' style='position: relative;left:"+pos[m][0]+";top:"+pos[m][1]+";'>");
-
-		}
-		document.write("</div>");
 	</script>
-	
 	<?php include 'footer.php'; ?>
 </body>
 </html>

@@ -6,9 +6,9 @@
 </head>
 
 <body>
-	
-	<p class="pagetitle"> About Us </p>
-	<table border="0" cellpadding="11px" about>
+	<fieldset><textarea rows="5%">abc</textarea></fieldset>
+	<p id="aboutustitle"> About Us </p>
+	<table border="0" cellpadding="11px" id="abouttable">
 		<tr>
 			<td width="50%"><img src="../images/vision.jpg"></td>
 			<td><b>Our Vision </b><br>
@@ -21,6 +21,5 @@
 		</tr>
 	</table>
 	
-	<?php include 'footer.php'; ?>
 </body>
 </html>

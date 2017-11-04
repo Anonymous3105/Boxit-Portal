@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>BOXiT-Helpdesk</title>
+	<link rel="stylesheet" href="../CSS/addons.css">
 </head>
-<body>
-	<fieldset style=" background-color: purple;"><textarea rows="5%" style="background-color: purple;">abc</textarea></fieldset>
-	<p style="font-weight: lighter;color: grey; font-size: 0.9em;">BOXIT has always been committed to customer service, anticipating needs and providing the highest level of service and reliability at all times.</p>
-	<fieldset>
-	<legend style="font-weight: bolder; text-decoration: underline;">FAQ:</legend>
+<body id="helpdeskbody">
+	<fieldset><textarea rows="5%">abc</textarea></fieldset>
+	<p id="disclaimer">BOXIT has always been committed to customer service, anticipating needs and providing the highest level of service and reliability at all times.</p>
+	<fieldset id="helpdeskbox">
+	<legend id="helpdesktitle">FAQ:</legend>
 
 <b>When will my shipment arrive?</b><br><br>
 
@@ -40,14 +41,6 @@ Please be aware that when purchasing goods via internet sites, some or all of th
 
 BOXIT pays the Customs authority on your behalf any duties and taxes that are due on the goods, when they enter the country. This simple process ensures that our courier can deliver your goods in shortest possible transit time. Please note that we only release the goods to you upon the full repayment of any duties and taxes that were paid on your behalf.<br>
 </fieldset>
-	<div class="webfoot" width="100%" height="150px">
-		<table cellspacing="20px">
-			<tr>
-				<td><a href="helpdesk.html"> Helpdesk </a></td>
-				<td><a href="contactpage.html"> Contact Us </a></td>
-				<td><a href="aboutuspage.html"> About Us </a></td>
-			</tr>
-		</table>
-	</div>
+
 </body>
 </html>

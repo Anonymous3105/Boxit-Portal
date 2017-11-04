@@ -1,4 +1,10 @@
+html, body {
+	margin: 0;
+	padding: 0;	
+}
+
 #topbardiv{
+	top: 0;
 	border: 0;
 	margin-top: 0;
 	padding: 0 0 3% 0;
@@ -58,10 +64,6 @@
 #logas:hover {
 	font-weight: 500;
 	color: #fff;
-}
-
-body {
-	margin: 0;
 }
 
 #topbarbody {
