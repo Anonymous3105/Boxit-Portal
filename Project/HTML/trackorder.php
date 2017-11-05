@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Tracking your Orders</title>
+	<link rel="stylesheet" href="../CSS/topbar.css">
 	<?php include 'session.php'; ?>
 </head>
 <body>
@@ -21,20 +22,33 @@
 		
 		$sql = "SELECT xcoord, ycoord FROM CITY WHERE name='$fromcity'";
 		$fromcitycoord = ($conn->query($sql))->fetch_assoc();
+
 		$sql = "SELECT xcoord, ycoord FROM CITY WHERE name='$tocity'";
 		$tocitycoord = ($conn->query($sql))->fetch_assoc();
-	?>
+		$sql2 = "SELECT TIME_TO_SEC(NOW())-TIME_TO_SEC(pickupdt) as diff FROM ordertb WHERE orderid=$b";
+		$row2 = ($conn->query($sql2))->fetch_assoc();
 
-	
 
-	
+		$sql="SELECT zone,north FROM CITY WHERE name='$fromcity'";
+		$from_zone_north=($conn->query($sql))->fetch_assoc();
+
+		$sql="SELECT zone,north FROM CITY WHERE name='$tocity'";
+		$to_zone_north=($conn->query($sql))->fetch_assoc();
+
+
+
+	?>	
 	<form style="display: none;">
 		<input type="text" readonly name="fromcityx" id="fromcityx" value="<?php echo $fromcitycoord['xcoord'];?>">
 		<input type="text" readonly name="fromcityy" id="fromcityy" value="<?php echo $fromcitycoord['ycoord'];?>">
 		<input type="text" readonly name="tocityx" id="tocityx" value="<?php echo $tocitycoord['xcoord'];?>">
 		<input type="text" readonly name="tocityy" id="tocityy" value="<?php echo $tocitycoord['ycoord'];?>">
 		<input type="text" readonly name="method" id="method" value="<?php echo $row1['method'];?>">
-		<input type="text" readonly name="pickupdt" id="pickupdt" value="<?php echo $row1['pickupdt'];?>">
+		<input type="text" readonly name="diff" id="diff" value="<?php echo $row2['diff'];?>">
+		<input type="text" readonly name="fzone" id="fzone" value="<?php echo $from_zone_north['zone']?>">
+		<input type="text" readonly name="tzone" id="tzone" value="<?php echo $to_zone_north['zone']?>">
+		<input type="text" readonly name="fnorth" id="fnorth" value="<?php echo $from_zone_north['north']?>">
+		<input type="text" readonly name="tnorth" id="tnorth" value="<?php echo $to_zone_north['north']?>">
 	</form>
 
 
@@ -43,32 +57,69 @@
 		var fromcityy = document.getElementById('fromcityy').value;
 		var tocityx = document.getElementById('tocityx').value;
 		var tocityy = document.getElementById('tocityy').value;
-		var method = document.getElementById('method').value;
-		var pickupdt = document.getElementById('pickupdt').value;
+		var	method = document.getElementById('method').value;
+		var	diff = document.getElementById('diff').value;
+		var fzone=document.getElementById('fzone').value;
+		var tzone=document.getElementById('tzone').value;
+		var fnorth=document.getElementById('fnorth').value;
+		var tnorth=document.getElementById('tnorth').value;	
+		var fposition =[parseFloat(fromcityx),parseFloat(fromcityy)];
+	    var tposition=[parseFloat(tocityx),parseFloat(tocityy)];
+		var pos=[[fposition[0],fposition[1]]];
 
 
 
-	         var fposition =[parseFloat(fromcityx),parseFloat(fromcityy)];
 
-		var tposition=[parseFloat(tocityx),parseFloat(tocityy)];
-		var pos=[[fposition[0]-100,fposition[1]-20]];
-		pos[6]=[tposition[0]-100,tposition[1]-20];
-		for(var m=1;m<6 ;m++)
+	if(method=="air")
+	{
+		pos[2]=[tposition[0],tposition[1]];
+		var plane_total=3*86400;
+		if (diff<plane_total)
 		{
-			var n =6-m;
-			var x=(m*parseFloat(tposition[0]-100)+n*parseFloat(fposition[0]-100))/6;
-			var y=(m*parseFloat(tposition[1]-20)+n*parseFloat(fposition[1]-20))/6;
-			pos[m]=[x,y];
+			var m = diff/plane_total;
 		}
+		else
+		{
+			m=1;
+		}
+		var n = 1-m;
+		var x=(m*parseFloat(tposition[0])+n*parseFloat(fposition[0]));
+		var y=(m*parseFloat(tposition[1])+n*parseFloat(fposition[1]));
+		pos[1]=[x,y];
+		
 		document.write("<div><img src='../images/worldmap.jpg' alt='The World Map' style='position: absolute;left: 0 px;top:0 px' >");
-		for(var m=1;m<7;m++)
-		{
-		document.write("<img src='../images/plane.jpeg' width='20px' style='position: relative;left:"+pos[m][0]+";top:"+pos[m][1]+";'>");
-
-		}
+		document.write("<img src='../images/plane.jpeg' width='20px' style='position: relative;left:"+pos[1][0]+";top:"+pos[1][1]+";'>");
 		document.write("</div>");
+	}
+
+/*	else if (method=="ship")
+	{
+		if (tzone>=fzone)
+		{
+			var i;
+			if(fnorth==0 && tnorth==0)
+			{
+									document.write("<div><img src='../images/worldmap.jpg' alt='The World Map' style='position: absolute;left: 0 px;top:0 px' >");
+					document.write("<img src='../images/plane.jpeg' width='20px' style='position: relative;left:"+pos[1][0]+";top:"+pos[1][1]+";'>");
+					document.write("</div>");
+				}
+			}
+			else if(fnorth==0 && tnorth==1)
+			{
+
+			}
+			else if(fnorth==1 && tnorth==0)
+			{
+
+			}
+			else
+			{
+
+			}
+		}
+	}
+*/
 	</script>
-	
 	<?php include 'footer.php'; ?>
 </body>
 </html>

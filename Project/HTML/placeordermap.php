@@ -5,9 +5,11 @@
 	<title>World Map</title>
 	<script src="../JS/placeordermap.js"></script>
 	<link rel="stylesheet" href="../CSS/placeordermap.css">
+	<link rel="stylesheet" href="../CSS/topbar.css">
+	<link rel="stylesheet" href="../CSS/footer.css">
 	<?php include 'session.php'; ?>
 	<?php 
-
+		$err_msg="";
 		if (isset($_POST['cityset'])) {
 			$fromcity = $_POST['fromcity'];
 			$tocity = $_POST['tocity'];
@@ -38,7 +40,7 @@
 				}
 			}
 			$conn->close();
-			if (err_flag == 0) {
+			if ($err_flag == 0) {
 				$_SESSION['fromcity'] = $fromcity;
 				$_SESSION['tocity'] = $tocity;
 				header("Location:placeorderform.php");
@@ -49,19 +51,13 @@
 	 ?>
 
 </head>
-<body>
+<body id="placeordermapbody">
 	<?php include 'topbar.php'; ?>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<table id="citydata" width=100%>
 			<tr>
-				<td>From city</td>
-				<td>To city</td>
-			</tr>
-			<tr>
-				<td><input type="text" name="fromcity" id="fromcity" readonly></td>
-				<td><input type="text" name="tocity" id="tocity" readonly></td>
-			</tr>
-			<tr>
+				<td><input type="text" name="fromcity" id="fromcity" readonly placeholder="From city"></td>
+				<td><input type="text" name="tocity" id="tocity" readonly placeholder="To city"></td>
 				<td><input type="submit" name="cityset" id="cityset" value="Proceed"></td>
 				<td><input type="reset" value="Reset" onclick="reset();"></td>
 			</tr>
@@ -70,7 +66,8 @@
 			</tr>
 		</table>
 	</form>
-	<img src="../images/worldmap.jpg" alt="World Map" usemap="worldmap">
+	<div id="mapbox">
+	<img src="../images/worldmap.jpg" alt="World Map" usemap="worldmap" />
 	<map name="worldmap">
 		<area id="Mumbai" shape="rect" onclick="exec(id);"  coords="919,419,928,425" />
 		<area id="Calcutta" shape="rect" onclick="exec(id);"  coords="971,412,980,421" />
@@ -109,8 +106,8 @@
 		<area id="Durban" shape="rect" onclick="exec(id);"  coords="776,590,785,596" />
 		<area id="Anchorage" shape="rect" onclick="exec(id);"  coords="164,212,173,222" />
 		<area id="Churchill" shape="rect" onclick="exec(id);"  coords="348,233,359,246" />
-
 	</map>
+	</div>
 	<?php include 'footer.php'; ?>
 </body>
 </html>
