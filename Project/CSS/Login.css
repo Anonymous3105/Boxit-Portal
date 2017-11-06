@@ -1,10 +1,8 @@
-#topbar{
+#loginbar{
 	background-color: rgba(255,255,255,0.045);
 	width: 100%;
 	height: 70px;
-	/*position: absolute;*/
 	margin: auto;
-	box-shadow: 
 }
 
 /*Login CSS*/
@@ -43,6 +41,13 @@
 	cursor: pointer;
 }
 
+#loginwrapper {
+	padding: 0 1em;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-gap: 1em;
+	justify-content: end;
+}
 
 
 #bigbox{

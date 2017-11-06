@@ -8,6 +8,7 @@ html, body {
 	border: 0;
 	margin-top: 0;
 	padding: 0 0 3% 0;
+	mix-blend-mode: hard-light;
 }
 
 #topbar{
@@ -18,9 +19,8 @@ html, body {
 	padding: 1% 0;
 	width: 100%;
 	overflow-x: hidden;
-	background-color: #000;
+	background-color: DarkBlue;
 	border: 0;
-	mix-blend-mode: hard-light;
 }
 
 .topitems {
@@ -43,7 +43,7 @@ html, body {
 }
 
 .topitems:hover{
-	background-color: rgba(0,0,0,0.5);
+	/*background-color: rgba(0,0,0,1);*/
 	color: #000;
 	font-weight: 600;
 

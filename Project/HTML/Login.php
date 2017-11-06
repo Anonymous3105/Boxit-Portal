@@ -76,26 +76,23 @@ $conn->close();
 	<link rel="stylesheet" href="../CSS/footer.css">
 </head>
 <body id="loginbg">
-	<div id="login_bg">
-		<div id="topbar">
-			<div id="lfloat">
-				<a href="homepage.html"> <img src="logo.jpg" alt="LOGO"> </a>
-			</div>
-
-			<div id="rfloat" style="float:right;">
-				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" id="loginform" method="post">
-					<table cellspacing="7px">
+	<div id="loginwrapper">
+		<div>
+			<img src="../images/Boxitlogo.jpg" alt="Boxit Logo" width="200px">
+		</div>
+		<div id="loginbar">
+			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" id="loginform" method="post">
+				<table cellspacing="7px">
+					<tr>
+						<td><input type="text" name="username" class="logininput" placeholder="Username" required autofocus /></td>
+						<td><input type="password" name="password" class="logininput" placeholder="Password" required/></td>
+						<td> <input type="submit" value="Log In" id="loginbutton" name="loginbutton"></td>
 						<tr>
-							<td><input type="text" name="username" class="logininput" placeholder="Username" required autofocus /></td>
-							<td><input type="password" name="password" class="logininput" placeholder="Password" required/></td>
-							<td> <input type="submit" value="Log In" id="loginbutton" name="loginbutton"></td>
-							<tr>
-								<td class="error"><?php echo $err_login; $err_login=""; ?></td>
-							</tr>
+							<td class="error"><?php echo $err_login; $err_login=""; ?></td>
 						</tr>
-					</table>
-				</form>
-			</div>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 

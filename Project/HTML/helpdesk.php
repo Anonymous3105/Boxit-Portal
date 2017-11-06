@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../CSS/addons.css">
 </head>
 <body id="helpdeskbody">
-	<fieldset><textarea rows="5%">abc</textarea></fieldset>
+	<fieldset align="center"><img src="../images/Boxitlogo.jpg" alt="Boxit Logo" width="200px"></fieldset>
 	<p id="disclaimer">BOXIT has always been committed to customer service, anticipating needs and providing the highest level of service and reliability at all times.</p>
 	<fieldset id="helpdeskbox">
 	<legend id="helpdesktitle">FAQ:</legend>

@@ -39,7 +39,7 @@
 	</script>
 </head>
 <body style="background-color: white; color: black;">
-	<fieldset style="background-color: purple;"><textarea rows="5%" style="background-color: purple;">abc</textarea></fieldset>
+	<fieldset align="center" style="background-color: purple;"><img src="../images/Boxitlogo.jpg" alt="Boxit Logo" width="200px"></fieldset>
 	<table width="100%"><tr><td style="font-size: 25px; font-weight: bolder; font-family: Trebuchet MS; width: 100%;text-align: center; background-color: #5481c9; color: white;">Contact Us</td></tr></table>
 	<p style="font-family: Helevetica;font-size: 18px; font-weight: lighter;" >Feel free to contact us.</p>
 
@@ -66,15 +66,5 @@
 		</fieldset>
 	</center>
 	</form>
-	<div class="webfoot" width="100%" height="100%">
-		<table cellspacing="20px" cellpadding="10" style="width: 100%;">
-			<tr>
-				<td width="10%"><a href="helpdesk.html"> Helpdesk </a></td>
-				<td width="10%"><a href="contactpage.html"> Contact Us </a></td>
-				<td><a href="aboutuspage.html"> About Us </a></td>
-			</tr>
-		</table>
-	</div>
 </body>
 </html>
-px

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<fieldset><textarea rows="5%">abc</textarea></fieldset>
+	<fieldset align="center"><img src="../images/Boxitlogo.jpg" alt="Boxit Logo" width="200px"></fieldset>
 	<p id="aboutustitle"> About Us </p>
 	<table border="0" cellpadding="11px" id="abouttable">
 		<tr>
