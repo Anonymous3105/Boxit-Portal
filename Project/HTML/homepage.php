@@ -11,8 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../CSS/homepage.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/topbar.css">
 </head>
-<body id="topbarbody">
-	<div id=topbardiv>
+<body id="homepagebody">
+	<div id="topbardiv">
 		<div id="topbar">
 			<div class="topitems" id="logout"><a href="logout.php">Logout</a></div>
 			<div class="topitems" id="logas">Logged in as: <?php echo $_SESSION["uname"]; ?></div>

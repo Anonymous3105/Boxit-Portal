@@ -1,4 +1,10 @@
+html, body {
+	margin: 0;
+	padding: 0;	
+}
+
 #topbardiv{
+	top: 0;
 	border: 0;
 	margin-top: 0;
 	padding: 0 0 3% 0;
@@ -14,6 +20,7 @@
 	overflow-x: hidden;
 	background-color: #000;
 	border: 0;
+	mix-blend-mode: hard-light;
 }
 
 .topitems {
@@ -58,10 +65,6 @@
 #logas:hover {
 	font-weight: 500;
 	color: #fff;
-}
-
-body {
-	margin: 0;
 }
 
 #topbarbody {
